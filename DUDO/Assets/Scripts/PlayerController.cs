@@ -5,14 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed = 10f;
-    public GameObject bullet;
+    public float speed;
+    public float jumpForce;
 
+    private Rigidbody rigidBody;
     private Cannon[] cannons;
 
     // Start is called before the first frame update
     void Start()
     {
+        rigidBody = GetComponent<Rigidbody>();
         cannons = GetComponentsInChildren<Cannon>();
     }
 
@@ -43,5 +45,13 @@ public class PlayerController : MonoBehaviour
                 cannon.Fire();
             }
         }
+    }
+
+    void OnCollisionEnter()
+    {
+        Vector3 velo = rigidBody.velocity;
+        velo.y = 0;
+        rigidBody.velocity = velo;
+        rigidBody.AddForce(Vector3.up * jumpForce);
     }
 }

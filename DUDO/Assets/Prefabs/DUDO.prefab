@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2721081043884475971}
   - component: {fileID: 8297955972629566706}
   - component: {fileID: 2509624969718958618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4271201860608853268}
   - component: {fileID: 6641686257923680675}
   - component: {fileID: 7509210431769745325}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 8673798798679731221}
   - component: {fileID: 8680165304120366658}
   - component: {fileID: 4875233844131590269}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 723925005250480096}
   - component: {fileID: 2408532056676592270}
   - component: {fileID: 5883965784879960870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 9188927094795488822}
   - component: {fileID: 9107183882958565899}
   - component: {fileID: 5333850642537514038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DUDO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  bullet: {fileID: 0}
+  jumpForce: 40
 --- !u!1 &3742453661581732694
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 1168302528975193982}
   - component: {fileID: 6430530523563783293}
   - component: {fileID: 8315742016619061355}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 7576156299530788948}
   - component: {fileID: 5029519857892717481}
   - component: {fileID: 4499776998792323212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 3157017430480967351}
   - component: {fileID: 5349980116396643156}
   - component: {fileID: 6734977289354816094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,7 +741,7 @@ GameObject:
   - component: {fileID: 1428041343715567244}
   - component: {fileID: 5193953247327233845}
   - component: {fileID: 3910434842777730823}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 6608224790572670159}
   - component: {fileID: 4254665718679903660}
   - component: {fileID: 4413073969366791656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,6 +925,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cannon
       objectReference: {fileID: 0}
+    - target: {fileID: 3352115241611377533, guid: 195a7a6bc3c82214e856814fc85752c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4299411607039143754, guid: 195a7a6bc3c82214e856814fc85752c5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -979,6 +984,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802899194586256843, guid: 195a7a6bc3c82214e856814fc85752c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150621923916750470, guid: 195a7a6bc3c82214e856814fc85752c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 195a7a6bc3c82214e856814fc85752c5, type: 3}
