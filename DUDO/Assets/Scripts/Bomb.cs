@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float lastingTime = 5f;
+    public float lastingTime = 3f;
 
     // Update is called once per frame
     void Update()
