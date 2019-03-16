@@ -35,7 +35,7 @@ public class Cannon : MonoBehaviour
     public void Fire()
     {
         ps.Play();
-        GameObject bm = GameObject.Instantiate(bomb, ps.transform.position, transform.rotation);
+        GameObject bm = Instantiate(bomb, ps.transform.position, transform.rotation);
         bm.GetComponent<Rigidbody>().AddForce(direction * 100f);
     }
 }

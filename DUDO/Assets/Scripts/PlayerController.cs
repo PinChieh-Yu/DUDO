@@ -9,18 +9,32 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
 
     private Rigidbody rigidBody;
+    private AudioSource audio;
     private Cannon[] cannons;
+
+    public float reloadTimer;
+    private float reloadSpeed;
+
+    private float baseReloadSpeed = 100;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        audio = GetComponent<AudioSource>();
         cannons = GetComponentsInChildren<Cannon>();
+        reloadTimer = 100f;
+        reloadSpeed = baseReloadSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (reloadTimer < 100f)
+        {
+            reloadTimer += Time.deltaTime * reloadSpeed;
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
@@ -38,8 +52,10 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector3.back * speed * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && reloadTimer >= 100f)
         {
+            reloadTimer = 0f;
+            audio.Play();
             foreach (Cannon cannon in cannons)
             {
                 cannon.Fire();

@@ -13,7 +13,16 @@ public class Bomb : MonoBehaviour
         lastingTime -= Time.deltaTime;
         if (lastingTime <= 0f)
         {
+            GameManager.lifeRemain--;
             Destroy(this.gameObject);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Monster")
+        {
+            Destroy(gameObject);
         }
     }
 }
