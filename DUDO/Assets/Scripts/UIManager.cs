@@ -12,21 +12,23 @@ public class UIManager : MonoBehaviour
 
     private TMP_Text scoreText;
     private Image reloadBar;
-
     private TMP_Text lifeText;
+
+    private GameManager gm;
 
     void Start()
     {
         reloadBar = transform.Find("ReloadBar").Find("Energy").GetComponent<Image>();
         scoreText = transform.Find("Score").Find("Point").GetComponent<TMP_Text>();
         lifeText = transform.Find("Miss").Find("Life").GetComponent<TMP_Text>();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         reloadBar.fillAmount = Mathf.Clamp01(pc.reloadTimer / 100f);
-        scoreText.text = GameManager.score.ToString();
-        lifeText.text = GameManager.lifeRemain.ToString();
+        scoreText.text = gm.score.ToString();
+        lifeText.text = gm.lifeRemain.ToString();
     }
 }

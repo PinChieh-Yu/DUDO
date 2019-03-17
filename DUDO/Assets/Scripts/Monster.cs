@@ -6,6 +6,7 @@ public class Monster : MonoBehaviour
 {
     private bool isHitted = false;
     public GameObject explosion;
+    public GameObject fireBall;
 
     private bool isAttacker;
 
@@ -15,9 +16,15 @@ public class Monster : MonoBehaviour
     private float speed;
     private Vector3 basePosition;
 
+    private float attackPeriod = 10; 
+    private float coolDown = 0;
+
+    private GameManager gm;
+
     void Start()
     {
         basePosition = transform.position;
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -28,6 +35,23 @@ public class Monster : MonoBehaviour
         {
             sign *= -1;
         }
+
+        if (isAttacker)
+        {
+            coolDown += Time.deltaTime;
+            if (coolDown > attackPeriod)
+            {
+                coolDown = 0f;
+                FireFireBall();
+            }
+        }
+    }
+
+    private void FireFireBall()
+    {
+        Vector3 target = GameObject.Find("DUDO").transform.position;
+        Vector3 direction = target - transform.position;
+        Instantiate(fireBall, transform.position, Quaternion.LookRotation(direction));
     }
 
     void OnCollisionEnter(Collision collision)
@@ -35,7 +59,7 @@ public class Monster : MonoBehaviour
         if (!isHitted)
         {
             isHitted = true;
-            GameManager.score += 1000;
+            gm.score += 1000;
             Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
             Destroy(gameObject);
         }
@@ -44,6 +68,11 @@ public class Monster : MonoBehaviour
     public void SetParam(bool isAttacker, float shakingScale = 0f, float shakingSpeedPercent = 100f)
     {
         this.isAttacker = isAttacker;
+
+        if (isAttacker)
+        {
+            attackPeriod = Random.Range(5f, 10f);
+        }
 
         scale = shakingScale;
         speed = shakingSpeedPercent;

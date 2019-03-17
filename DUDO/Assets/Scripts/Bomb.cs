@@ -13,7 +13,6 @@ public class Bomb : MonoBehaviour
         lastingTime -= Time.deltaTime;
         if (lastingTime <= 0f)
         {
-            GameManager.lifeRemain--;
             Destroy(this.gameObject);
         }
     }

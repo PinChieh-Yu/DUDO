@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     private float baseReloadSpeed = 100;
 
+    private GameManager gm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,8 @@ public class PlayerController : MonoBehaviour
         cannons = GetComponentsInChildren<Cannon>();
         reloadTimer = 100f;
         reloadSpeed = baseReloadSpeed;
+
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -63,11 +67,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision collision)
     {
-        Vector3 velo = rigidBody.velocity;
-        velo.y = 0;
-        rigidBody.velocity = velo;
-        rigidBody.AddForce(Vector3.up * jumpForce);
+        if (collision.gameObject.tag == "FireBall")
+        {
+            gm.PlayerReduceLife();
+        }
+        else
+        {
+            Vector3 velo = rigidBody.velocity;
+            velo.y = 0;
+            rigidBody.velocity = velo;
+            rigidBody.AddForce(Vector3.up * jumpForce);
+        }
     }
 }
