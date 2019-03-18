@@ -8,8 +8,16 @@ public class FireBall : MonoBehaviour
     public GameObject explosion;
     bool isHitted = false;
 
+    public float lastingTime = 3f;
+
     void Update()
     {
+        lastingTime -= Time.deltaTime;
+        if (lastingTime <= 0f)
+        {
+            Destroy(this.gameObject);
+        }
+
         transform.Translate(Vector3.forward * Time.deltaTime * 20);
     }
 

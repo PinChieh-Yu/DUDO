@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     {
         reloadBar = transform.Find("ReloadBar").Find("Energy").GetComponent<Image>();
         scoreText = transform.Find("Score").Find("Point").GetComponent<TMP_Text>();
-        lifeText = transform.Find("Miss").Find("Life").GetComponent<TMP_Text>();
+        lifeText = transform.Find("Life").Find("Point").GetComponent<TMP_Text>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 

@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public int lifeRemain = 10;
 
+    public GameObject player;
+
     [SerializeField]
     private int maxMonsterCount;
     private int monsterCount;
@@ -36,10 +38,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayerReduceLife()
+    public void PlayerReduceLife(int amount)
     {
-        lifeRemain--;
-        if (lifeRemain == 0)
+        lifeRemain -= amount;
+        if (lifeRemain <= 0)
         {
             Time.timeScale = 0;
             restartUI.SetActive(true);
@@ -60,10 +62,13 @@ public class GameManager : MonoBehaviour
             Destroy(fireball);
         }
 
+        score = 0;
         lifeRemain = 10;
         Time.timeScale = 1;
 
         CreateMonsters();
+
+        player.transform.position = new Vector3(0f, 0f, 0f);
 
         restartUI.SetActive(false);
     }

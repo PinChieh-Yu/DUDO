@@ -25,7 +25,7 @@ public class Cannon : MonoBehaviour
     void Update()
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 20f;
+        mousePos.z = 25f;
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         direction = worldPos - transform.position;
 

@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         if (reloadTimer < 100f)
         {
             reloadTimer += Time.deltaTime * reloadSpeed;
@@ -65,13 +70,18 @@ public class PlayerController : MonoBehaviour
                 cannon.Fire();
             }
         }
+
+        if (transform.position.y < -5f)
+        {
+            gm.PlayerReduceLife(10);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "FireBall")
         {
-            gm.PlayerReduceLife();
+            gm.PlayerReduceLife(1);
         }
         else
         {
