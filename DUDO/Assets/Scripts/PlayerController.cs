@@ -44,22 +44,8 @@ public class PlayerController : MonoBehaviour
             reloadTimer += Time.deltaTime * reloadSpeed;
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-        }
-        else if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
-        }
+        rigidBody.AddForce(Vector3.forward * Input.GetAxis("Vertical") * speed);
+        rigidBody.AddForce(Vector3.right * Input.GetAxis("Horizontal") * speed);
 
         if (Input.GetKeyDown(KeyCode.Space) && reloadTimer >= 100f)
         {

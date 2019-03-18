@@ -68,7 +68,8 @@ public class GameManager : MonoBehaviour
 
         CreateMonsters();
 
-        player.transform.position = new Vector3(0f, 0f, 0f);
+        player.transform.position = Vector3.zero;
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
         restartUI.SetActive(false);
     }
